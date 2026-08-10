@@ -1,43 +1,335 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Submit Complaint</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit Complaint | Complaint Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(135deg, #eaf4ff 0%, #f5f9ff 45%, #eef2ff 100%);
+            color: #1e293b;
+            padding: 40px 20px;
+        }
+
+        .top-bar {
+            max-width: 900px;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+        }
+
+        .brand-text h2 {
+            font-size: 20px;
+            color: #172554;
+        }
+
+        .brand-text p {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 3px;
+        }
+
+        .card {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 15px 45px rgba(30, 64, 175, 0.12);
+            border: 1px solid #dbeafe;
+        }
+
+        .header {
+            margin-bottom: 28px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            color: #172554;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 13px 14px;
+            font-size: 15px;
+            color: #1e293b;
+            background: #ffffff;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+        }
+
+        textarea {
+            min-height: 170px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+
+        .button-area {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+            align-items: center;
+        }
+
+        .submit-btn {
+            border: none;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 13px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+            transition: 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(37, 99, 235, 0.30);
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: #f8fafc;
+            color: #2563eb;
+        }
+
+        .notice {
+            margin-top: 28px;
+            padding: 15px 17px;
+            border-radius: 10px;
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            color: #475569;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .card {
+                padding: 22px;
+                border-radius: 14px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .top-bar {
+                margin-bottom: 18px;
+            }
+
+            .brand-text h2 {
+                font-size: 17px;
+            }
+
+            .button-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .submit-btn,
+            .back-btn {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h2>Submit Complaint</h2>
+    <div class="top-bar">
+        <div class="brand">
+            <div class="brand-icon">✓</div>
 
-    <form method="POST">
+            <div class="brand-text">
+                <h2>Complaint Management System</h2>
+                <p>Student Support Portal</p>
+            </div>
+        </div>
+    </div>
 
-        <label>Subject:</label><br>
-        <input type="text" name="subject" required>
+    <div class="card">
 
-        <br><br>
+        <div class="header">
+            <h1>Submit a Complaint</h1>
+            <p>
+                Please provide the details of your complaint below.
+                Our administration team will review and respond to your request.
+            </p>
+        </div>
 
-        <label>Category:</label><br>
-        <select name="category" required>
-            <option value="Academic">Academic</option>
-            <option value="Faculty">Faculty</option>
-            <option value="Infrastructure">Infrastructure</option>
-            <option value="Transport">Transport</option>
-            <option value="Other">Other</option>
-        </select>
+        <form method="POST">
 
-        <br><br>
+            <div class="form-group">
+                <label for="subject">
+                    Complaint Subject <span class="required">*</span>
+                </label>
 
-        <label>Description:</label><br>
-        <textarea name="description" rows="6" cols="40" required></textarea>
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Enter the subject of your complaint"
+                    required
+                >
+            </div>
 
-        <br><br>
+            <div class="form-group">
+                <label for="category">
+                    Complaint Category <span class="required">*</span>
+                </label>
 
-        <button type="submit">Submit Complaint</button>
+                <select id="category" name="category" required>
+                    <option value="Academic">Academic</option>
+                    <option value="Infrastructure">Infrastructure</option>
+                    <option value="Hostel">Hostel</option>
+                    <option value="Library">Library</option>
+                    <option value="Faculty">Faculty</option>
+                    <option value="Fees">Fees</option>
+                    <option value="Examination">Examination</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
 
-    </form>
+            <div class="form-group">
+                <label for="description">
+                    Complaint Description <span class="required">*</span>
+                </label>
 
-    <br>
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Please explain your complaint in detail..."
+                    required
+                ></textarea>
 
-    <a href="/dashboard">Back to Dashboard</a>
+                <div class="help-text">
+                    Please provide accurate and complete information.
+                </div>
+            </div>
+
+            <div class="button-area">
+
+                <button type="submit" class="submit-btn">
+                    Submit Complaint
+                </button>
+
+                <a href="/dashboard" class="back-btn">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+        </form>
+
+        <div class="notice">
+            <strong>Note:</strong>
+            Your complaint will initially be marked as
+            <strong>Pending</strong>. You can track its status from your dashboard.
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Complaint Management System · Student Support Portal
+    </div>
 
 </body>
 </html>
