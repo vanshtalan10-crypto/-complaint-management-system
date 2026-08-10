@@ -1,0 +1,391 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #87ceeb,
+        #60a5fa,
+        #dbeafe
+    );
+
+    color: #1f2937;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navbar {
+    width: 100%;
+    padding: 24px 60px;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    margin-right: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    opacity: 0.75;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 80px auto;
+}
+
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.card {
+    width: 100%;
+    max-width: 600px;
+
+    min-height: 430px;
+
+    margin: 50px auto;
+
+    padding: 55px 60px;
+
+    background: rgba(255, 255, 255, 0.22);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18);
+
+    text-align: left;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+
+    margin-bottom: 18px;
+
+    color: #111827;
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: 700;
+
+    margin-bottom: 35px;
+
+    color: #111827;
+
+    letter-spacing: 0.5px;
+}
+
+h3 {
+    font-size: 22px;
+
+    margin-bottom: 18px;
+
+    color: #111827;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #374151;
+}
+
+
+/* =========================
+   FORMS
+========================= */
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #1f2937;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    margin-top: 5px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    outline: none;
+
+    font-size: 16px;
+
+    color: #1f2937;
+
+    transition: 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6b7280;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border: 1px solid #2563eb;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn {
+    display: inline-block;
+
+    padding: 14px 35px;
+
+    min-width: 130px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-right: 10px;
+
+    transition: all 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: #1d4ed8;
+}
+
+.card a {
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 14px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    text-align: left;
+}
+
+th {
+    background: rgba(37, 99, 235, 0.85);
+
+    color: white;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .logo {
+        margin-right: 0;
+
+        text-align: center;
+
+        font-size: 19px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .container {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+    .card {
+        max-width: 100%;
+
+        min-height: auto;
+
+        padding: 35px 25px;
+
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,255 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="navbar">
+
+    <div class="logo">
+        Online Complaint Management System
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/complaint">
+            New Complaint
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+
+    <!-- =========================================
+         STUDENT PROFILE
+    ========================================== -->
+
+    <div class="card">
+
+        <h2>
+            Welcome, {{ session["name"] }}
+        </h2>
+
+        <p>
+            Here are your student details.
+        </p>
+
+        <br>
+
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Student Name
+                </th>
+
+                <td>
+                    {{ session["name"] }}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <th>
+                    Student ID
+                </th>
+
+                <td>
+                    {{ session["student_id"] }}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <th>
+                    Course
+                </th>
+
+                <td>
+                    {{ session["course"] }}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <th>
+                    Section
+                </th>
+
+                <td>
+                    {{ session["section"] }}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <th>
+                    Email
+                </th>
+
+                <td>
+                    {{ session["email"] }}
+                </td>
+
+            </tr>
+
+        </table>
+
+
+        <br>
+
+
+        <a href="/complaint" class="btn">
+            + Submit New Complaint
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================
+         MY COMPLAINTS
+    ========================================== -->
+
+    <div class="card">
+
+        <h3>
+            My Complaints
+        </h3>
+
+
+        {% if complaints %}
+
+
+        <table>
+
+            <tr>
+
+                <th>
+                    ID
+                </th>
+
+                <th>
+                    Subject
+                </th>
+
+                <th>
+                    Category
+                </th>
+
+                <th>
+                    Date
+                </th>
+
+                <th>
+                    Time
+                </th>
+
+                <th>
+                    Status
+                </th>
+
+            </tr>
+
+
+            {% for complaint in complaints %}
+
+
+            <tr>
+
+                <td>
+                    {{ complaint["id"] }}
+                </td>
+
+
+                <td>
+                    {{ complaint["subject"] }}
+                </td>
+
+
+                <td>
+                    {{ complaint["category"] }}
+                </td>
+
+
+                <td>
+                    {{ complaint["complaint_date"] }}
+                </td>
+
+
+                <td>
+                    {{ complaint["complaint_time"] }}
+                </td>
+
+
+                <td>
+
+                    <span class="status">
+
+                        {{ complaint["status"] }}
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+
+            {% endfor %}
+
+
+        </table>
+
+
+        {% else %}
+
+
+        <p>
+            No complaints submitted yet.
+        </p>
+
+
+        {% endif %}
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
+```
